@@ -44,6 +44,11 @@ func GeneratePDF(c *gin.Context) {
 }
 
 func generatePDF(data types.BookingData) (string, error) {
+	error := os.RemoveAll("./pdfs")
+	if error != nil {
+		log.Println("Couldn't clean /pdfs dir")
+	}
+
 	err := os.MkdirAll("./pdfs", os.ModePerm)
 	if err != nil {
 		return "", err
