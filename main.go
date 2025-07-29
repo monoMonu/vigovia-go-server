@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -10,6 +11,12 @@ import (
 )
 
 func main() {
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3002"
+	}
+
 	app := gin.Default()
 
 	app.Use(cors.New(cors.Config{
@@ -29,5 +36,5 @@ func main() {
 
 	app.POST("/generate-itinerary", api.GeneratePDF)
 
-	app.Run(":3002")
+	app.Run(":" + port)
 }
