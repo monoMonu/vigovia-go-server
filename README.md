@@ -44,6 +44,11 @@
 
    Expected response: `"Hello World"`
 
+## Through Web
+- If the server is running on port 3002, then you can test it from https://vigovia-assessment.netlify.app/
+
+Visit the site and fill the form, you will receive the itinerary pdf link
+
 ## API Documentation - Use Postman or any other tool to test below APIs
 
 ### Endpoints
