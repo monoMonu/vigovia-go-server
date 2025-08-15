@@ -7,9 +7,7 @@ import (
 	"time"
 )
 
-// FormatDate converts a string date to the desired format.
 func FormatDate(date string) string {
-	// Parse the date string into a time.Time object
 	parsedDate, err := time.Parse("2006-01-02", date)
 	if err != nil {
 		log.Println("Error parsing date:", err)
@@ -18,9 +16,7 @@ func FormatDate(date string) string {
 	return parsedDate.Format("02 Jan, 2006")
 }
 
-// CalculateNights calculates the number of nights between two date strings.
 func CalculateNights(departureDate string, returnDate string) int {
-	// Parse both dates into time.Time objects
 	departure, err1 := time.Parse("2006-01-02", departureDate)
 	returnDateParsed, err2 := time.Parse("2006-01-02", returnDate)
 	if err1 != nil || err2 != nil {
@@ -30,7 +26,6 @@ func CalculateNights(departureDate string, returnDate string) int {
 	return int(returnDateParsed.Sub(departure).Hours() / 24)
 }
 
-// ConvertStringToTime converts a string date into a time.Time object.
 func ConvertStringToTime(date string) (time.Time, error) {
 	parsedDate, err := time.Parse("2006-01-02", date)
 	if err != nil {
@@ -39,7 +34,7 @@ func ConvertStringToTime(date string) (time.Time, error) {
 	return parsedDate, nil
 }
 
-// SanitizeFileName cleans up a filename by removing invalid characters.
+// removing invalid characters.
 func SanitizeFileName(name string) string {
 	res := ""
 	for _, r := range name {
@@ -80,6 +75,5 @@ func FormatDuration(duration int, timeSlot string) string {
 		return "Half Day"
 	}
 
-	// Default
 	return "2-3 Hours"
 }
